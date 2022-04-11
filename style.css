@@ -18,8 +18,8 @@
 
 .card {
     background-color: rgb(246, 245, 247);
-    width: 150px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     text-align: center;
     display: flex;
     align-items: center;

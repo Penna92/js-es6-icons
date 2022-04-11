@@ -18,288 +18,202 @@
 // STRUTTURA DATI INIZIALE
 
 const data = [
-  {
-    name: "cat",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "crow",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "dog",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "dove",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "dragon",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "horse",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "hippo",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "fish",
-    prefix: "fa-",
-    type: "animal",
-    family: "fas",
-    color: "orange",
-  },
-  {
-    name: "carrot",
-    prefix: "fa-",
-    type: "vegetable",
-    family: "fas",
-    color: "green",
-  },
-  {
-    name: "apple-alt",
-    prefix: "fa-",
-    type: "vegetable",
-    family: "fas",
-    color: "green",
-  },
-  {
-    name: "lemon",
-    prefix: "fa-",
-    type: "vegetable",
-    family: "fas",
-    color: "green",
-  },
-  {
-    name: "pepper-hot",
-    prefix: "fa-",
-    type: "vegetable",
-    family: "fas",
-    color: "green",
-  },
-  {
-    name: "user-astronaut",
-    prefix: "fa-",
-    type: "user",
-    family: "fas",
-    color: "blue",
-  },
-  {
-    name: "user-graduate",
-    prefix: "fa-",
-    type: "user",
-    family: "fas",
-    color: "blue",
-  },
-  {
-    name: "user-ninja",
-    prefix: "fa-",
-    type: "user",
-    family: "fas",
-    color: "blue",
-  },
-  {
-    name: "user-secret",
-    prefix: "fa-",
-    type: "user",
-    family: "fas",
-    color: "blue",
-  },
-];
-// console.log(data);
-
-const select = document.getElementById("type");
-// console.log(select);
-
-
-// const animali = data.filter((animals) => {
-// 	return animals.type === "animal"
-// })
-// console.log(animali);
-
-// const vegetali = data.filter((vegetables) => {
-// 	return vegetables.type === "vegetable"
-// })
-// console.log(vegetali);
-
-// const utenti = data.filter((users) => {
-// 	return users.type === "user"
-// })
-// console.log(utenti);
-
-
-// CREA COLORE RANDOMICAMENTE
-const randColor = () =>  {
-    return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
-}
-
-console.log(randColor());
-
-data.forEach(cambiaColore);
-
-function cambiaColore(item, index){
-	console.log(item.color);
-	item.color = randColor();	
-	console.log(item.color);
-}
-
-// FUNZIONE PER STAMPARE LA GRIGLIA E COLORARE LE ICONE
-data.forEach(stampaGriglia);
-
-function stampaGriglia(item, index) {
-  // console.log(item, index, arr);
-  let card = 
-  	`
-	<div class="card">
-		<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
-		<span>${item.name}</span>
-	</div>
-	`;
-  document.getElementById("container").innerHTML += card;
-  // console.log(card);
-  // console.log(card.outerHTML);
-  let cards = document.getElementsByClassName("card");
-  // console.log(cards.item(index));
-  let cardsEffect = cards.item(index);
-  //   console.log(cardsEffect);
-  cardsEffect.style.color = item.color;
-  // console.log(item);
-  // console.log(animali);
-  cardsEffect.classList.add(item.type); // aggiunta classe dinamicamente ad ogni card per distinguere il tipo
-}
-
-const animali = document.getElementsByClassName("animal");
-const vegetali = document.getElementsByClassName("vegetable");
-const utenti = document.getElementsByClassName("user");
-
-// FUNZIONE CHE VISUALIZZA LE ICONE DELLO STESSO TIPO IN BASE ALLA SELECT (CODICE DA SINTENTIZZARE IN UN SECONDO TEMPO)
-
-select.addEventListener("change", displayCards);
-function displayCards() {
-  // console.log(select.value);
-  // console.log(data[0].type);
-  if (select.value === "animal") {
-    for (let i = 0; i < vegetali.length; i++) {
-      let cardsSparite = vegetali[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < utenti.length; i++) {
-      let cardsSparite = utenti[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < animali.length; i++) {
-      let cardsVisibili = animali[i];
-      cardsVisibili.classList.remove("d-none");
-    }
-  } else if (select.value === "vegetable") {
-    for (let i = 0; i < animali.length; i++) {
-      let cardsSparite = animali[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < utenti.length; i++) {
-      let cardsSparite = utenti[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < vegetali.length; i++) {
-      let cardsVisibili = vegetali[i];
-      cardsVisibili.classList.remove("d-none");
-    }
-  } else if (select.value === "user") {
-    for (let i = 0; i < animali.length; i++) {
-      let cardsSparite = animali[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < vegetali.length; i++) {
-      let cardsSparite = vegetali[i];
-      cardsSparite.classList.add("d-none");
-    }
-    for (let i = 0; i < utenti.length; i++) {
-      let cardsVisibili = utenti[i];
-      cardsVisibili.classList.remove("d-none");
-    }
-  } else {
-    for (let i = 0; i < animali.length; i++) {
-      let cardsSparite = animali[i];
-      cardsSparite.classList.remove("d-none");
-    }
-    for (let i = 0; i < vegetali.length; i++) {
-      let cardsSparite = vegetali[i];
-      cardsSparite.classList.remove("d-none");
-    }
-    for (let i = 0; i < utenti.length; i++) {
-      let cardsVisibili = utenti[i];
-      cardsVisibili.classList.remove("d-none");
-    }
+	{
+	  name: "cat",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "crow",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "dog",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "dove",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "dragon",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "horse",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "hippo",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "fish",
+	  prefix: "fa-",
+	  type: "animal",
+	  family: "fas",
+	  color: "orange",
+	},
+	{
+	  name: "carrot",
+	  prefix: "fa-",
+	  type: "vegetable",
+	  family: "fas",
+	  color: "green",
+	},
+	{
+	  name: "apple-alt",
+	  prefix: "fa-",
+	  type: "vegetable",
+	  family: "fas",
+	  color: "green",
+	},
+	{
+	  name: "lemon",
+	  prefix: "fa-",
+	  type: "vegetable",
+	  family: "fas",
+	  color: "green",
+	},
+	{
+	  name: "pepper-hot",
+	  prefix: "fa-",
+	  type: "vegetable",
+	  family: "fas",
+	  color: "green",
+	},
+	{
+	  name: "user-astronaut",
+	  prefix: "fa-",
+	  type: "user",
+	  family: "fas",
+	  color: "blue",
+	},
+	{
+	  name: "user-graduate",
+	  prefix: "fa-",
+	  type: "user",
+	  family: "fas",
+	  color: "blue",
+	},
+	{
+	  name: "user-ninja",
+	  prefix: "fa-",
+	  type: "user",
+	  family: "fas",
+	  color: "blue",
+	},
+	{
+	  name: "user-secret",
+	  prefix: "fa-",
+	  type: "user",
+	  family: "fas",
+	  color: "blue",
+	},
+  ];
+  // console.log(data);
+  
+  //POPOLARE LE OPTION DELLA SELECT DINAMICAMENTE
+  const options = ["all", "animal", "vegetable", "user"];
+  
+  for (let i = 0; i < options.length; i++) {
+	let option = `
+			  <option value=${options[i]}>${options[i]}</option>
+		  `;
+	// console.log(option);
+	document.getElementById("type").innerHTML += option;
   }
-}
-
-//POPOLARE LE OPTION DELLA SELECT DINAMICAMENTE
-const options = ["all", "animal", "vegetable", "user"];
-
-for (let i = 0; i < options.length; i++) {
-  let option = 
-  	`
-		<option value=${options[i]}>${options[i]}</option>
-	`;
-  // console.log(option);
-  document.getElementById("type").innerHTML += option;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const opzioni = document.getElementById('opzioni').value
-
-// if(opzioni === '1'){
-//     let tipoAnimale = tipo.filter((genere) => genere.type === 'animal')
-// }
-// else if(opzioni === '2'){
-//     let tipoVegetale = tipo.filter((genere) => genere.type === 'vegetable')
-// }
-// else if(opzioni === '3'){
-//     let tipoUser = tipo.filter((genere) => genere.type === 'user')
-// }
+  
+  //CREAZIONE ARRAY PER I DIVERSI TIPI DI OGGETTO
+  const animals = data.filter((animali) => {
+	return animali.type === "animal";
+  });
+  console.log(animals);
+  
+  const vegetables = data.filter((vegetali) => {
+	return vegetali.type === "vegetable";
+  });
+  console.log(vegetables);
+  
+  const users = data.filter((utenti) => {
+	return utenti.type === "user";
+  });
+  console.log(users);
+  
+  // FUNZIONE CHE STAMPA LA GRIGLIA DI DEFAULT
+  data.forEach(stampaGriglia);
+  
+  function stampaGriglia(item, index) {
+	// console.log(item, index, arr);
+	let card = `
+		<div class="card">
+			<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
+			<span>${item.name}</span>
+		</div>
+		`;
+	document.getElementById("container").innerHTML += card;
+	let cards = document.getElementsByClassName("card");
+	// console.log(cards.item(index));
+	let cardsEffect = cards.item(index);
+	//   console.log(cardsEffect);
+	cardsEffect.style.color = item.color;
+  }
+  
+  // FUNZIONE CHE STAMPA LA GRIGLIA A SECONDA DELLA SCELTA DELL'UTENTE
+  const select = document.getElementById("type");
+  select.addEventListener("change", displayCards);
+  
+  function displayCards() {
+	if (select.value === "animal") {
+	  document.getElementById("container").innerHTML = "";
+	  animals.forEach(stampaGriglia);
+	} else if (select.value === "vegetable") {
+	  document.getElementById("container").innerHTML = "";
+	  vegetables.forEach(stampaGriglia);
+	} else if (select.value === "user") {
+	  document.getElementById("container").innerHTML = "";
+	  users.forEach(stampaGriglia);
+	} else {
+	  document.getElementById("container").innerHTML = "";
+	  data.forEach(stampaGriglia);
+	}
+  }
+  
+  // CREA COLORE RANDOMICAMENTE
+  const randColor = () => {
+	return (
+	  "#" +
+	  Math.floor(Math.random() * 16777215)
+		.toString(16)
+		.padStart(6, "0")
+		.toUpperCase()
+	);
+  };
+  // console.log(randColor());
+  
+  data.forEach(cambiaColore);
+  
+  function cambiaColore(item) {
+	item.color = randColor();
+  }
+  
