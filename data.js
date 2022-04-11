@@ -169,7 +169,7 @@ function stampaGriglia(item, index, arr) {
   let cards = document.getElementsByClassName("card");
   // console.log(cards.item(index));
   let cardsEffect = cards.item(index);
-  console.log(cardsEffect);
+  //   console.log(cardsEffect);
   cardsEffect.style.color = item.color;
   // console.log(item);
   // console.log(animali);
@@ -240,4 +240,16 @@ function displayCards() {
       cardsVisibili.classList.remove("d-none");
     }
   }
+}
+
+//POPOLARE LE OPTION DELLA SELECT DINAMICAMENTE
+
+const options = ["all", "animal", "vegetable", "user"];
+
+for (let i = 0; i < options.length; i++) {
+  let option = `
+		<option value=${options[i]}>${options[i]}</option>
+	`;
+  // console.log(option);
+  document.getElementById("type").innerHTML += option;
 }
