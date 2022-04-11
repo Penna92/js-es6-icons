@@ -1,0 +1,15 @@
+.top-header{
+    height: 80px;
+    line-height: 80px;
+}
+.bottom-header{
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(67,175,222);
+}
+.top-header h1 {
+    color: rgb(67,175,222);
+    line-height: 80px;
+    margin-left: 20px;
+    font-family: 'Abril Fatface', cursive;
+}
