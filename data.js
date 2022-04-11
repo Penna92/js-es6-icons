@@ -135,17 +135,26 @@ const data = [
 
 // console.log(data);
 
-// FUNZIONE PER STAMPARE LA GRIGLIA 
+// FUNZIONE PER STAMPARE LA GRIGLIA E COLORARE LE ICONE
 data.forEach(stampaGriglia);
 
 function stampaGriglia(item, index, arr){
-	console.log(item, index, arr);
-	document.getElementById("container").innerHTML += (`
+	// console.log(item, index, arr);
+	let card = `
 	<div class="card">
 		<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
 		<span>${item.name}</span>
 	</div>
-	`)
+	`
+	document.getElementById("container").innerHTML += card;
+	console.log(card);
+	// console.log(card.outerHTML);
+	let cards = document.getElementsByClassName("card");
+	console.log(cards.item(index));
+	let cardsEffect = cards.item(index);
+	console.log(cardsEffect);
+	cardsEffect.style.color=item.color;
+	// console.log(item);
 }
 
 
