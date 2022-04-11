@@ -15,150 +15,229 @@
 // Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno stile, con all'interno l'icona e uno span con il nome. Solamente quando la parte logica è completa, ci dedichiamo al css.
 // Buon lavoro !
 
-
 // STRUTTURA DATI INIZIALE
 
 const data = [
-	{
-		name: 'cat',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'crow',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dog',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dove',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'dragon',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'horse',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'hippo',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'fish',
-		prefix: 'fa-',
-		type: 'animal',
-		family: 'fas',
-		color: 'orange'
-	},
-	{
-		name: 'carrot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'apple-alt',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'lemon',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'pepper-hot',
-		prefix: 'fa-',
-		type: 'vegetable',
-		family: 'fas',
-		color: 'green'
-	},
-	{
-		name: 'user-astronaut',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-graduate',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-ninja',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	},
-	{
-		name: 'user-secret',
-		prefix: 'fa-',
-		type: 'user',
-		family: 'fas',
-		color: 'blue'
-	}
+  {
+    name: "cat",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "crow",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "dog",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "dove",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "dragon",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "horse",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "hippo",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "fish",
+    prefix: "fa-",
+    type: "animal",
+    family: "fas",
+    color: "orange",
+  },
+  {
+    name: "carrot",
+    prefix: "fa-",
+    type: "vegetable",
+    family: "fas",
+    color: "green",
+  },
+  {
+    name: "apple-alt",
+    prefix: "fa-",
+    type: "vegetable",
+    family: "fas",
+    color: "green",
+  },
+  {
+    name: "lemon",
+    prefix: "fa-",
+    type: "vegetable",
+    family: "fas",
+    color: "green",
+  },
+  {
+    name: "pepper-hot",
+    prefix: "fa-",
+    type: "vegetable",
+    family: "fas",
+    color: "green",
+  },
+  {
+    name: "user-astronaut",
+    prefix: "fa-",
+    type: "user",
+    family: "fas",
+    color: "blue",
+  },
+  {
+    name: "user-graduate",
+    prefix: "fa-",
+    type: "user",
+    family: "fas",
+    color: "blue",
+  },
+  {
+    name: "user-ninja",
+    prefix: "fa-",
+    type: "user",
+    family: "fas",
+    color: "blue",
+  },
+  {
+    name: "user-secret",
+    prefix: "fa-",
+    type: "user",
+    family: "fas",
+    color: "blue",
+  },
 ];
 
 // console.log(data);
 
+const select = document.getElementById("type");
+// console.log(select);
+
+// const animali = data.filter((animals) => {
+// 	return animals.type === "animal"
+// })
+// console.log(animali);
+
+// const vegetali = data.filter((vegetables) => {
+// 	return vegetables.type === "vegetable"
+// })
+// console.log(vegetali);
+
+// const utenti = data.filter((users) => {
+// 	return users.type === "user"
+// })
+// console.log(utenti);
+
 // FUNZIONE PER STAMPARE LA GRIGLIA E COLORARE LE ICONE
 data.forEach(stampaGriglia);
 
-function stampaGriglia(item, index, arr){
-	// console.log(item, index, arr);
-	let card = `
+function stampaGriglia(item, index, arr) {
+  // console.log(item, index, arr);
+  let card = `
 	<div class="card">
 		<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
 		<span>${item.name}</span>
 	</div>
-	`
-	document.getElementById("container").innerHTML += card;
-	console.log(card);
-	// console.log(card.outerHTML);
-	let cards = document.getElementsByClassName("card");
-	console.log(cards.item(index));
-	let cardsEffect = cards.item(index);
-	console.log(cardsEffect);
-	cardsEffect.style.color=item.color;
-	// console.log(item);
+	`;
+  document.getElementById("container").innerHTML += card;
+  // console.log(card);
+  // console.log(card.outerHTML);
+  let cards = document.getElementsByClassName("card");
+  // console.log(cards.item(index));
+  let cardsEffect = cards.item(index);
+  console.log(cardsEffect);
+  cardsEffect.style.color = item.color;
+  // console.log(item);
+  // console.log(animali);
+  cardsEffect.classList.add(item.type);
 }
 
+const animali = document.getElementsByClassName("animal");
+const vegetali = document.getElementsByClassName("vegetable");
+const utenti = document.getElementsByClassName("user");
 
+// FUNZIONE CHE VISUALIZZA LE ICONE DELLO STESSO TIPO IN BASE ALLA SELECT (CODICE DA SINTENTIZZARE IN UN SECONDO TEMPO)
 
+select.addEventListener("change", displayCards);
+function displayCards() {
+  // console.log(select.value);
+  // console.log(data[0].type);
 
-
-
+  if (select.value === "animal") {
+    for (let i = 0; i < vegetali.length; i++) {
+      let cardsSparite = vegetali[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < utenti.length; i++) {
+      let cardsSparite = utenti[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < animali.length; i++) {
+      let cardsVisibili = animali[i];
+      cardsVisibili.classList.remove("d-none");
+    }
+  } else if (select.value === "vegetable") {
+    for (let i = 0; i < animali.length; i++) {
+      let cardsSparite = animali[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < utenti.length; i++) {
+      let cardsSparite = utenti[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < vegetali.length; i++) {
+      let cardsVisibili = vegetali[i];
+      cardsVisibili.classList.remove("d-none");
+    }
+  } else if (select.value === "user") {
+    for (let i = 0; i < animali.length; i++) {
+      let cardsSparite = animali[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < vegetali.length; i++) {
+      let cardsSparite = vegetali[i];
+      cardsSparite.classList.add("d-none");
+    }
+    for (let i = 0; i < utenti.length; i++) {
+      let cardsVisibili = utenti[i];
+      cardsVisibili.classList.remove("d-none");
+    }
+  } else {
+    for (let i = 0; i < animali.length; i++) {
+      let cardsSparite = animali[i];
+      cardsSparite.classList.remove("d-none");
+    }
+    for (let i = 0; i < vegetali.length; i++) {
+      let cardsSparite = vegetali[i];
+      cardsSparite.classList.remove("d-none");
+    }
+    for (let i = 0; i < utenti.length; i++) {
+      let cardsVisibili = utenti[i];
+      cardsVisibili.classList.remove("d-none");
+    }
+  }
+}

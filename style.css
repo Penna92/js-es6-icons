@@ -1,20 +1,23 @@
-.top-header{
+.top-header {
     height: 80px;
     line-height: 80px;
 }
-.bottom-header{
+
+.bottom-header {
     height: 50px;
     line-height: 50px;
-    background-color: rgb(67,175,222);
+    background-color: rgb(67, 175, 222);
 }
+
 .top-header h1 {
-    color: rgb(67,175,222);
+    color: rgb(67, 175, 222);
     line-height: 80px;
     margin-left: 20px;
     font-family: 'Abril Fatface', cursive;
 }
-.card{
-    background-color: rgb(246,245,247);
+
+.card {
+    background-color: rgb(246, 245, 247);
     width: 150px;
     height: 100px;
     text-align: center;
@@ -22,9 +25,23 @@
     align-items: center;
     align-content: center;
     justify-content: center;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-span{
+
+span {
     color: black;
+    font-weight: 500;
+}
+
+i {
+    font-size: 36px;
+}
+
+.d-none {
+    display: none;
+}
+
+.display-flex {
+    display: flex;
 }
