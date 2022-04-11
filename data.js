@@ -133,8 +133,20 @@ const data = [
 	}
 ];
 
-console.log(data);
+// console.log(data);
 
+// FUNZIONE PER STAMPARE LA GRIGLIA 
+data.forEach(stampaGriglia);
+
+function stampaGriglia(item, index, arr){
+	console.log(item, index, arr);
+	document.getElementById("container").innerHTML += (`
+	<div class="card">
+		<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
+		<span>${item.name}</span>
+	</div>
+	`)
+}
 
 
 

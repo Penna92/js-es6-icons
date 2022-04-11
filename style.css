@@ -13,3 +13,13 @@
     margin-left: 20px;
     font-family: 'Abril Fatface', cursive;
 }
+.card{
+    background-color: rgb(246,245,247);
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
