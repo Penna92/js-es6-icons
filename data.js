@@ -131,11 +131,11 @@ const data = [
     color: "blue",
   },
 ];
-
 // console.log(data);
 
 const select = document.getElementById("type");
 // console.log(select);
+
 
 // const animali = data.filter((animals) => {
 // 	return animals.type === "animal"
@@ -152,12 +152,29 @@ const select = document.getElementById("type");
 // })
 // console.log(utenti);
 
+
+// CREA COLORE RANDOMICAMENTE
+const randColor = () =>  {
+    return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+}
+
+console.log(randColor());
+
+data.forEach(cambiaColore);
+
+function cambiaColore(item, index){
+	console.log(item.color);
+	item.color = randColor();	
+	console.log(item.color);
+}
+
 // FUNZIONE PER STAMPARE LA GRIGLIA E COLORARE LE ICONE
 data.forEach(stampaGriglia);
 
-function stampaGriglia(item, index, arr) {
+function stampaGriglia(item, index) {
   // console.log(item, index, arr);
-  let card = `
+  let card = 
+  	`
 	<div class="card">
 		<i class="${item.prefix}solid ${item.prefix}${item.name}"></i>
 		<span>${item.name}</span>
@@ -173,7 +190,7 @@ function stampaGriglia(item, index, arr) {
   cardsEffect.style.color = item.color;
   // console.log(item);
   // console.log(animali);
-  cardsEffect.classList.add(item.type);
+  cardsEffect.classList.add(item.type); // aggiunta classe dinamicamente ad ogni card per distinguere il tipo
 }
 
 const animali = document.getElementsByClassName("animal");
@@ -186,7 +203,6 @@ select.addEventListener("change", displayCards);
 function displayCards() {
   // console.log(select.value);
   // console.log(data[0].type);
-
   if (select.value === "animal") {
     for (let i = 0; i < vegetali.length; i++) {
       let cardsSparite = vegetali[i];
@@ -243,13 +259,47 @@ function displayCards() {
 }
 
 //POPOLARE LE OPTION DELLA SELECT DINAMICAMENTE
-
 const options = ["all", "animal", "vegetable", "user"];
 
 for (let i = 0; i < options.length; i++) {
-  let option = `
+  let option = 
+  	`
 		<option value=${options[i]}>${options[i]}</option>
 	`;
   // console.log(option);
   document.getElementById("type").innerHTML += option;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const opzioni = document.getElementById('opzioni').value
+
+// if(opzioni === '1'){
+//     let tipoAnimale = tipo.filter((genere) => genere.type === 'animal')
+// }
+// else if(opzioni === '2'){
+//     let tipoVegetale = tipo.filter((genere) => genere.type === 'vegetable')
+// }
+// else if(opzioni === '3'){
+//     let tipoUser = tipo.filter((genere) => genere.type === 'user')
+// }
